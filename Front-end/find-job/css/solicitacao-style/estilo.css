@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Cores ===== */
+    --body-color: rgb(245, 243, 243);
+    --blue-color: #427AAA;
+    --orange-color: #ED7A11;
+    --white-color: #ffffff;
+    --text-color: #ffffff;
+    --gray-color: #dfdfdf;
+    /* ====== Transições ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+body {
+    background-color: var(--body-color);
+}
+
+p::selection,
+h3::selection,
+h4::selection,
+h2::selection,
+h5::selection,
+i::selection,
+a::selection,
+ul::selection,
+li::selection,
+span::selection,
+label::selection,
+input::selection,
+button::selection,
+strong::selection,
+img::selection {
+    background-color: var(--orange-color) !important;
+    color: #ffffff;
+
+}
+
+.home {
+    width: 80%;
+}
+
+.nav-left.close~.home {
+    width: 90%;
+    left: 7% !important;
+    height: 100vh;
+
+}
+
+
+.home {
+    position: absolute;
+    left: 15%;
+    display: flex;
+    justify-content: center;
+    transition: var(--tran-05);
+    top: 12%;
+
+}
+
+.home .principal {
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.group {
+    border-radius: 3px;
+    height: 100%;
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #dfdfdf;
+    align-items: center;
+    
+
+}
+.card{
+    display: block;
+    width: 100%;
+    position: absolute  !important;
+    overflow-y: scroll  !important;
+    height: 80vh  !important;
+    scroll-behavior: smooth  !important;
+}
+.card::-webkit-scrollbar {
+    width: 12px; 
+    ;
+
+    }
+  
+  .card::-webkit-scrollbar-track {
+    background: transparent;
+    opacity: 0.5;    
+
+    /* color of the tracking area */
+  }
+  
+  .card::-webkit-scrollbar-thumb {
+
+    background-color:#ED7A11 ;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid var(--body-color) ;  /* creates padding around scroll thumb */
+  }
+
+
+
+
+.card.empresa.close{
+    display: none;
+}
+.card.vagas.close{
+    display: none;
+}
+.solicVaga {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 5px solid #427AAA;
+}
+.solicVaga.close{
+    border-bottom: 0px ;
+}
+.solicEmpresa {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 5px solid #427AAA;
+}
+
+.solicEmpresa.close{
+    border-bottom: 0px ;
+}
+.group li,
+a {
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: var(--tran-03);
+    cursor: pointer;
+}
+
+.card-body {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--white-color);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: var(--tran-05);
+    margin-bottom: 20px;
+}
+
+.header-vaga,
+.body-vaga,
+.footer-vaga,
+.header-empresa,
+.body-empresa,
+.footer-empresa {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.btn-superior {
+    display: flex;
+    flex-direction: row;
+    color: #ffffff !important;
+
+}
+
+.add {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 100%;
+    
+}
+.a{
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 10px;
+    width: 40%;
+    
+}
+.btn.solicitEmpresa {
+    background-color: #427AAA !important;
+    margin-bottom: 3%;
+
+}
+
+button {
+    color: #ffffff !important;
+    margin: 1px;
+}
+
+.btn-aceitar button {
+    background-color: green !important;
+
+}
+
+.btn-recusar button {
+    background-color: red !important;
+}
+
+.btn-aceitar button {
+    background-color: green !important;
+}
+
+.btn-verMais button {
+    background-color: var(--blue-color) !important;
+}
+
+
+.descricao{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    
+
+}
+.vaga p,
+h4 {
+
+    overflow: hidden !important;
+    /* // Removendo barra de rolagem */
+    text-overflow: ellipsis !important;
+    /* // Adicionando "..." ao final */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    /*  // Quantidade de linhas */
+    -webkit-box-orient: vertical !important;
+    margin-right: 30px !important;
+
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- validação do token-->
+    <script src="../../js/token/adm/script.js" defer></script>
+    <!----===== Bootstrap ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../css/solicitacao-style/estilo.css">
+    <link rel="stylesheet" href="../../css/navbar-style/estilo.css">
+    <link rel="stylesheet" href="../../css/notifications-style/estilo.css">
+
+    <!--   <link rel="stylesheet" href="../../css/modal-style/estilo.css">
+ -->
+
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Find Job | Solicitações</title>
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <!-- Envio de email quando cadastrar -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("z7o4593zD739tQAdz");
+        })();
+    </script>
+</head>
+
+<body>
+    <div class="todo">
+        <nav class="nav-top">
+
+            <div class="buscar" id="divbuscar">
+                <input class="buscar" type="text" placeholder="Buscar" id="buscar">
+                <div type="button" class="icone">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </div>
+            <div class="user" href="perfil.html">
+
+                <div class="user-text">
+                    <label id="nameUser">Olá</label>
+                </div>
+            </div>
+
+
+        </nav>
+
+        <nav class="nav-left">
+
+            <header class="header">
+                <span class="img">
+                    <img src="../../img/logo.png" alt="" srcset="">
+                </span>
+
+                <i class='bx bx-menu toggle'></i>
+
+            </header>
+
+
+            <div class="menu-bar">
+                <div class="menu">
+                    <ul class="tlogo">
+
+                        <span class="text nav-text"><strong>FIND JOB</strong></span>
+                    </ul>
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="perfil.html">
+
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">Perfil</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="home.html">
+                                <i class='bx bx-home-alt icon'></i>
+                                <span class="text nav-text">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="#">
+
+                                <i class='bx bx-bell icon'></i>
+                                <span class="text nav-text">Solicitações</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-link">
+                            <a href="listagem.html">
+                                <i class='bx bx-spreadsheet icon'></i>
+                                <span class="text nav-text">Usuários</span>
+                            </a>
+                        </li>
+                        <li class="sair">
+                            <a href="../login/login/login_adm.html">
+                                <i class='bx bx-log-out icon sair'></i>
+                            </a>
+                        </li>
+
+                </div>
+            </div>
+
+
+        </nav>
+        <nav class="nav-bootom"></nav>
+
+
+        <div class="home">
+            <div class="principal">
+                <div class="container">
+
+                    <div class="group">
+                        <div class="solicVaga" id="vaga">
+                            <li>Vaga</li>
+                        </div>
+                        <div class="solicEmpresa close" id="empresa">
+                            <li>Empresa</li>
+                        </div>
+                    </div>
+
+                    <!-- Solicitações de vagas -->
+                    <div class="card vagas" id="cardVagas">
+
+                        <div class="card-header">
+                            <h3 class="card-title">Solicitações de Vaga</h3>
+                            <div class="btn-superior">
+                                <div class="add">
+
+                                    <div class="addVaga">
+                                        <button type="button" class="btn addVaga" id="adiconaVaga">Adicionar Vaga
+                                            +</button>
+                                    </div>
+                                    <div class="addEmpresa">
+                                        <button type="button" class="btn addEmpresa" id="adiconaEmpresa">Adicionar
+                                            Empresa +</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="vagasGroup"></div>
+                        </div>
+                    </div>
+
+
+                    <!-- solicitações de empresa -->
+                    <div class="card empresa close" id="cardEmpresa">
+                        <div class="card-header">
+                            <h3 class="card-title">Solicitações de Empresas</h3>
+                            <div class="btn-superior">
+                                <div class="add">
+                                    <div class="addVaga">
+                                        <button type="button" class="btn addVaga" id="adiconaVaga">Adicionar Vaga
+                                            +</button>
+                                    </div>
+                                    <div class="addEmpresa">
+                                        <button type="button" class="btn addEmpresa" id="adiconaEmpresa">Adicionar
+                                            Empresa +</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="empresaGroup"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ADICIONA VAGA-->
+            <div class="modal fade" id="modalAddVaga1" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropEditEP">NOVA VAGA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">NOME DA VAGA:</label>
+                                    <input type="text" class="form-control" placeholder="Nome da vaga" id="tituloVaga">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">NOME DA EMPRESA:</label>
+                                    <select class="form-select" aria-label="Default select example" id="empresaSelect">
+                                        <option disabled selected>Selecione uma opção</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5>Meios de contato:</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">E-MAIL DA EMPRESA:</label>
+                                    <input type="email" class="form-control" placeholder="E-mail da empresa"
+                                        id="emailContato">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">WHATSAPP DA EMPRESA:</label>
+                                    <input type="text" class="form-control" id="wppVaga"
+                                        placeholder="WhatsApp da empresa" onkeypress="mask(this, mphone);"
+                                        onblur="mask(this, mphone);" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">TELEFONE DA EMPRESA:</label>
+                                    <input type="text" class="form-control" id="telefoneContato"
+                                        placeholder="Telefone da empresa" onkeypress="mask(this, mphone);"
+                                        onblur="mask(this, mphone);" />
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label">SITE DA EMPRESA:</label>
+                                    <input type="text" class="form-control" placeholder="Site da empresa" id="site">
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label">REGIME DE CONTRATAÇÃO:</label>
+                                    <select class="form-select" aria-label="Default select example" id="contratacao">
+                                        <option disabled selected>Selecione uma opção</option>
+                                        <option value="efetivo">Efetivo</option>
+                                        <option value="tempoDeterminado">Por tempo determinado</option>
+                                        <option value="temporario">Temporário</option>
+                                        <option value="terceirizado">Terceirizado</option>
+                                        <option value="intermitente">Intermitente</option>
+                                        <option value="parcial">Parcial</option>
+                                        <option value="homeOffice">Home-office</option>
+                                        <option value="autônomo">Autônomo</option>
+                                        <option value="prestacaoServiços">Prestação de serviços</option>
+                                        <option value="estagio">Estágio</option>
+                                        <option value="trainee">Trainee</option>
+                                        <option value="jovemAprendiz">Jovem aprendiz</option>
+                                        <option value="trabalhadorHipersuficiente">Trabalhador hipersuficiente</option>
+
+
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">PERÍODO DA VAGA:</label>
+                                    <select class="form-select" aria-label="Default select example" id="periodo">
+                                        <option disabled selected>Selecione uma opção</option>
+                                        <option value="diurno">Diurno</option>
+                                        <option value="noturno">Noturno</option>
+                                        <option value="matutino">Matutino</option>
+                                    </select>
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label">ÁREA PROFISSIONAL:</label>
+                                    <select class="form-select" aria-label="Default select example"
+                                        id="areaProfissional">
+                                        <option disabled selected>Selecione uma opção</option>
+                                        <option value="administracao">Administração</option>
+                                        <option value="alimentosBebidas">Alimentos e bebidas</option>
+                                        <option value="design">Design Gráfico</option>
+                                        <option value="eletrica">Elétrica</option>
+                                        <option value="empilhadeira">Empilhadeira</option>
+                                        <option value="logistica">Logística</option>
+                                        <option value="mecatronica">Mecatrônica</option>
+                                        <option value="mecanica">Mecânica</option>
+                                        <option value="MeioAmbiente">Meio Ambiente</option>
+                                        <option value="metalurgia">Metalurgia</option>
+                                        <option value="sisAutomacao">Sistema de automação</option>
+                                        <option value="soldagem">Soldagem</option>
+                                        <option value="TI">Tecnologia da Informação</option>
+                                    </select>
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label">SALÁRIO:</label>
+                                    <input type="text" class="form-control" placeholder="Salário" id="salario"
+                                        maxlength="9" onkeyup="formatarMoeda()">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">AOS CUIDADOS DE:</label>
+                                    <input type="text" id="cuidados" class="form-control"
+                                        placeholder="Pessoa que receberá os currículos">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="proximoVaga">Próximo</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  ADICIONA VAGA 2  -->
+            <div class="modal fade" id="modalAddVaga2" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropEditEP">NOVA VAGA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+
+
+
+
+                                <div class="col-md-12">
+                                    <label class="form-label">REQUISITOS:</label>
+                                    <textarea class="form-control" rows="3"
+                                        placeholder="Ex: Ensino Médio, Ensino Superior, etc..."
+                                        id="requisitos"></textarea>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <label class="form-label">DESCRIÇÃO DA VAGA:</label>
+                                    <textarea class="form-control" rows="2" placeholder="Descrição da vaga"
+                                        id="descricao"></textarea>
+                                </div>
+
+
+
+                                <div class="col-md-12">
+                                    <label class="form-label">DESEJÁVEL:</label>
+                                    <textarea class="form-control" rows="2"
+                                        placeholder="Ex: Excel, Word, PowerPoint, etc..." id="desejaveis"></textarea>
+                                </div>
+
+
+                                <div class="col-md-12">
+                                    <label class="form-label">BENEFÍCIOS:</label>
+                                    <textarea class="form-control" id="beneficios" rows="2"
+                                        placeholder="Ex: Vale Refeição, Vale Alimentação, Vale Transporte, etc..."></textarea>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="voltarVaga">Voltar</button>
+                            <button type="submit" class="btn btn-primary" id="salvarVaga">Salvar</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADICIONA EMPRESA-->
+            <div class="modal fade" id="modalAddEmpresa1" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+
+                <div class="modal-dialog modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropEditEP">NOVA EMPRESA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">NOME DA EMPRESA:</label>
+                                    <input type="text" class="form-control" placeholder="Nome da empresa"
+                                        id="nomeEmpresa">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">E-MAIL:</label>
+                                    <input type="email" class="form-control" placeholder="E-mail" id="emailEmpresa">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">TELEFONE:</label>
+                                    <input type="text" class="form-control" maxlength="15"
+                                        onkeypress="return onlynumber();" placeholder="Telefone" id="telEmpresa">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CNPJ:</label>
+                                    <input type="text" class="form-control" placeholder="CNPJ" id="cnpjEmpresa">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CEP:</label>
+                                    <input type="text" class="form-control" id="cepEmpresa" maxlength="9"
+                                        onblur="pesquisacep(this.value);" placeholder="CEP">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">ENDEREÇO:</label>
+                                    <input type="text" class="form-control" id="ruaEmpresa" placeholder="Endereço">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="proximoEmpresa">Próximo</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  ADICIONA EMPRESA 2  -->
+            <div class="modal fade" id="modalAddEmpresa2" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropEditEP">NOVA EMPRESA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label">CIDADE:</label>
+                                    <input type="text" class="form-control" id="cidadeEmpresa" placeholder="Cidade">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">BAIRRO:</label>
+                                    <input type="text" class="form-control" id="bairroEmpresa" placeholder="Bairro">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">UF:</label>
+                                    <input type="text" class="form-control" id="ufEmpresa" placeholder="UF">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">NÚMERO:</label>
+                                    <input type="text" class="form-control" onkeypress="return onlynumber();"
+                                        placeholder="Número" id="nEmpresa">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">SENHA:</label>
+                                    <input type="password" class="form-control" placeholder="Senha" id="senhaEmpresa">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="inputState" class="form-label">CONFIRME A SENHA:</label>
+                                    <input type="password" class="form-control" placeholder="Confirmar senha"
+                                        id="confSenhaEmpresa">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" id="voltarEmpresa">Voltar</button>
+                            <button type="submit" class="btn btn-primary" id="salvarEmpresa">Salvar</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Vaga -->
+            <div class="modal fade" id="modalVaga" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="nomeVaga">Nome da Vaga</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                id="closeModal"></button>
+                        </div>
+                        <div class="modal-body" id="modalBody">
+
+                        </div>
+                        <div class="modal-footer">
+
+
+                            <button type="button" class="btn btn-secondary" id="closeModal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bootstrap -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+                integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+                crossorigin="anonymous"></script>
+            <script src="../../js/navbar-js/script.js"></script>
+            <script src="../../js/solicitacao-js/script.js"></script>
+
+</body>
+
+</html>

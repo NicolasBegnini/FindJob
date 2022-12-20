@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  /* ===== Cores ===== */
+  --body-color: rgb(245, 243, 243);
+  --blue-color: #427AAA;
+  --orange-color: #ED7A11;
+  --white-color: #ffffff;
+  --text-color: #ffffff;
+  --gray-color: #dfdfdf;
+  /* ====== Transições ====== */
+  --tran-03: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.3s ease;
+  --tran-05: all 0.3s ease;
+}
+
+
+body {
+  background-color: var(--body-color) !important;
+}
+
+.home {
+  width: 80%;
+
+}
+
+.home {
+  position: absolute;
+  left: 17.5%;
+  display: flex;
+  transition: var(--tran-05);
+  height: 80%;
+
+}
+
+.nav-left.close~.home {
+  left: 12% !important;
+  height: 80% !important;
+
+}
+
+/* modal  */
+.modal-content {
+  border-bottom: 11px solid var(--orange-color);
+}
+
+
+/* Divs */
+
+.principal {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-content: space-between;
+  flex-direction: row;
+
+}
+
+
+.curriculo {
+  top: 20%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.header-c {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.header-c span {
+  width: 15%;
+  height: 2px;
+  background-color: var(--orange-color);
+}
+
+
+.c1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--body-color);
+  border-radius: 15px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  -webkit-animation: swing-in-left-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  animation: swing-in-left-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+@-webkit-keyframes swing-in-left-fwd {
+  0% {
+    -webkit-transform: rotateY(100deg);
+    transform: rotateY(100deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+@keyframes swing-in-left-fwd {
+  0% {
+    -webkit-transform: rotateY(100deg);
+    transform: rotateY(100deg);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    opacity: 1;
+  }
+}
+
+
+.c1.close {
+  display: none;
+
+}
+
+
+.c2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--body-color);
+  border-radius: 15px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  -webkit-animation: swing-in-right-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+  animation: swing-in-right-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+
+}
+
+@-webkit-keyframes swing-in-right-bck {
+  0% {
+    -webkit-transform: rotateY(70deg);
+    transform: rotateY(70deg);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+
+@keyframes swing-in-right-bck {
+  0% {
+    -webkit-transform: rotateY(70deg);
+    transform: rotateY(70deg);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+
+.c2.close {
+  display: none;
+}
+
+
+.header-c,
+.body-c,
+.footer-c {
+  width: 70%;
+}
+
+.header-c {
+  background-color: var(--body-color);
+  height: 15%;
+
+}
+
+.body-c {
+  padding: 4% 0% 10% 0%;
+  height: 70%;
+}
+
+.footer-c {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 15%;
+}
+
+/* ====== Footer curriculo ====== */
+.btn {
+  background-color: var(--orange-color) !important;
+  border: none !important;
+  border-radius: 20px !important;
+}
+
+.bolinhas {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+
+
+.bolinhas .b1,
+.b2 {
+  margin: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 10px;
+  background-color: #DDD;
+}
+
+.c1 .b1 {
+  background-color: var(--orange-color);
+}
+
+.c2 .b2 {
+  background-color: var(--orange-color);
+}
+
+
+
+
+
+.dados_c {
+  top: 20%;
+  position: absolute;
+  position: relative;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-left: 5%;
+}
+
+.d1 {
+
+  width: 100%;
+  height: 40%;
+  background-color: var(--white-color);
+  border-bottom: var(--blue-color) 11px solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.d2 {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  background-color: var(--white-color);
+  border-bottom: var(--blue-color) 11px solid;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-d {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+.header-d span {
+  width: 15%;
+  height: 2px;
+  background-color: var(--orange-color);
+}
+
+.footer-c {
+  width: 100%;
+  height: 50%;
+}
+
+
+.exp{
+  margin-top: 10px;
+  flex-direction: row;
+  background-color: #ED7A11 !important;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+
+}
+#expProf, #formAcad{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.btnExcluir{
+  display: flex;
+  flex-direction: row;
+  justify-self: end;
+  align-items: center;
+  width: 30%;
+  background-color: transparent !important;
+  border: none;
+  font-size: 35px;
+  color: #ffffff;
+}

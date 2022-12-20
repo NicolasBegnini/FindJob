@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/navbar-style/estilo.css">
+
+    <link rel="stylesheet" href="../../css/perfil-style/perfil.css">
+    <title>Find Job | Perfil</title>
+
+    <!-- validação do token-->
+    <script src="../../js/token/adm/script.js" defer></script>
+
+    <!----===== Bootstrap ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../../css/notifications-style/estilo.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Envio de email quando cadastrar -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init("z7o4593zD739tQAdz");
+  })();
+</script>
+</head>
+
+<body>
+    <nav class="nav-top">
+
+        <div class="buscar" id="divbuscar" style="display:none ;">
+            <input class="buscar" type="text" placeholder="Buscar" id="buscar">
+            <div type="button" class="icone">
+                <i class='bx bx-search icon'></i>
+            </div>
+        </div>
+        <div class="user" href="perfil.html" style="display:none">
+
+            <div class="user-text">
+                <label id="user">Olá, Luccas Mello</label>
+            </div>
+        </div>
+
+    </nav>
+
+    <nav class="nav-left">
+
+        <header class="header">
+            <span class="img">
+                <img src="../../img/logo.png" alt="" srcset="">
+            </span>
+
+            <i class='bx bx-menu toggle'></i>
+
+        </header>
+
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="tlogo">
+
+                    <span class="text nav-text"><strong>FIND JOB</strong></span>
+                </ul>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="perfil.html">
+
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Perfil</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="home.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="solicitacao.html">
+
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Solicitações</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="listagem.html">
+                            <i class='bx bx-spreadsheet icon'></i>
+                            <span class="text nav-text">Usuários</span>
+                        </a>
+                    </li>
+                    <li class="sair">
+                        <a href="../login/login/login_adm.html">
+                            <i class='bx bx-log-out icon sair'></i>
+                        </a>
+                    </li>
+
+            </div>
+        </div>
+
+
+
+    </nav>
+
+    <div class="home">
+
+        <div class="principal">
+            <div class="dadosP">
+                <div class="d1 adm">
+                    <div class="header-p">
+                        <h3 class="title">PERFIL</h3>
+                        <h3 class="title">ADMINISTRADOR</h3>
+                        <span></span>
+                    </div>
+
+                </div>
+                <div class="d2 adm">
+                    <div class="header-p">
+                        <h3 class="title">NOVO </h3>
+                        <h3 class="title">ADMINSTRADOR</h3>
+                        <span></span>
+                    </div>
+                    <div class="footer-p">
+                        <button class="btn btn-primary" id="addAdm">+</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="dadosC">
+                <div class="header-d">
+                    <h3>DADOS CADASTRAIS</h3>
+                    <span></span>
+                </div>
+                <div class="body-d">
+                    <span>
+                        <label id="nomeUser">Nome:</label>
+                        <p id="nomeSpan"></p>
+
+                    </span>
+                    <span>
+                        <label>E-mail:</label>
+                        <p id="emailSpan"></p>
+                    
+                    </span>
+                    <span>
+                        <label>Celular:</label>
+                        <p id="celularSpan"></p> 
+                 
+                    </span>
+                    <span>
+                        <label>CPF:</label>
+                        <p id="cpfSpan"></p>
+                    </span>
+                </div>
+                <div class="footer-d">
+                    <button class="btn btn-primary" data-bs-toggle="modal"  id="editAdm" role="button">Editar</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+        <!-- editar dados cad -->
+        <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdrop">DADOS CADASTRAIS</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-1" id="FormfromaAcad">
+                            <div class="col-md-12">
+                                <label for="inputDate4" class="form-label">E-mail:</label>
+                                <input type="text" class="form-control" id="nomeCurso">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Celular:</label>
+                                <input type="text" class="form-control" id="nomeInstituicao" placeholder="">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">CPF:</label>
+                                <input type="text" class="form-control" id="CursoCidade" placeholder="">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Senha:</label>
+                                <input type="text" class="form-control" id="CursoCidade" placeholder="">
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="salvarEdit">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- cria adm -->
+
+        <div class="modal fade" id="newAdm" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdrop">NOVO ADMINISTRADOR</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-1" id="novoAdm">
+                            <div class="col-md-12">
+                                <label for="inputDate4" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputDate4" class="form-label">E-mail</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">CPF:</label>
+                                <input type="text" class="form-control" id="cpf" placeholder="">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Senha:</label>
+                                <input type="text" class="form-control" id="senha" placeholder="">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Confirme a senha:</label>
+                                <input type="text" class="form-control" id="senha" placeholder="">
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary " id="salvaAdm" >Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
+
+
+        <script src="../../js/navbar-js/script.js"></script>
+        <script src="../../js/perfil-js/perfil-adm/script.js"></script>
+</body>
+
+</html>

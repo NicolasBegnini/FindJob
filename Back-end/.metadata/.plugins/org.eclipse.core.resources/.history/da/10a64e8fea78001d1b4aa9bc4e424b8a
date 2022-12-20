@@ -1,0 +1,84 @@
+package br.com.sp.senai.findjob.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.Email;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import lombok.Data;
+//edição das vagas
+//delete excluir a vaga
+//empresa adc numero
+//validação pra listar a vaga
+@Data
+@Entity
+@Table(name = "vagas")
+public class Vaga {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+	@Column(name = "titulo_vaga", length = 50, nullable = true)
+	private String tituloVaga;
+	@Email
+	@Column(name = "email_contato", length = 100, nullable = true)
+	private String emailContato;
+	
+	@Column(name = "whatsapp", length = 50, nullable = false)
+	private String whatsapp;
+	
+	@Column(name = "contato", length = 50, nullable = true)
+	private String contato;
+	
+	@Column(name = "requisitos", nullable = true)
+	private String requisitos;
+	
+	@Column(name = "desejavel", nullable = true)
+	private String desejavel;
+	
+	@Column(name = "descricao", nullable = true)
+	private String descricao;
+	
+	@Column(name = "cuidados", length = 50, nullable = false)
+	private String cuidados;
+	
+	@Column(name = "expiracao", nullable = false)
+	private String expiracao;
+	
+	@Column(name = "publicacao", nullable = false)
+	private String publicacao;
+	
+	@Column(name = "site", length = 50, nullable = false)
+	private String beneficios;
+	
+	@Column(name = "beneficios", length = 100, nullable = false)
+	private String site;
+	
+	@Column(name = "salario", length = 50, nullable = false)
+	private String salario;
+	
+	@Column(name = "contratacao", length = 50, nullable = false)
+	private String contratacao;
+	
+	@Column(name = "periodo", length = 50, nullable = false)
+	private String periodo;
+	
+	private Boolean ativo;
+	
+	@Column(name = "areaProfissional", length = 5)
+	private String areaProfissional;
+
+	
+	@ManyToOne
+	private Empresa empresa;
+
+}

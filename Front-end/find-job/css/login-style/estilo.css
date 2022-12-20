@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+  
+   background: rgb(237, 122, 17);
+    background: linear-gradient(122deg, rgba(237, 122, 17, 0.5914740896358543) 0%, rgba(66, 122, 170, 0.7707457983193278) 62%);
+  
+}
+
+:root {
+    /* ===== Cores ===== */
+    --body-color: #FFFFFF;
+    --nav-lateral-color: #427AAA;
+    --nav-topo-color: #ED7A11;
+    --toggle-color: #DDD;
+    --text-color: #ffffff;
+
+
+
+    /* ====== Transições ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+
+.container {
+    width: 100%;
+}
+
+
+/* logo find jobs */
+.logo {
+    z-index: 100;
+    background-color: var(--text-color);
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+    width: 80px;
+    border-radius: 45px;
+    height: 80px;
+    
+  }
+  
+  
+  
+  .logo .logo_principal {
+    width: 90%;
+  }
+  
+
+
+
+.principal {
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    height: 100vh;
+
+}
+
+.login {
+    color: #ffffff;
+    z-index: 100;
+    border-radius: 15px 0px 0px 15px;
+    position: relative;
+    width: 400px;
+    height: 550px;
+    background-color: #427AAA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: var(--tran-05);
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+}
+.imagem {
+    background-size: cover;
+    height: 550px;
+    width: 400px;
+    border-radius: 0px 15px 15px 0px ;
+    background-image: url(../../img/trabalhando2.jpg);
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+}
+
+.title {
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+    
+}
+
+
+.title span {
+    width: 15%;
+    height: 3px;
+    background-color: #DA6A04;
+}
+
+.title h3 {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+
+}
+
+
+
+
+/* Animação de texto */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputs span input {
+    width: 250px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.inputs span {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.entrar input {
+    cursor: pointer;
+    background-color: #ED7A11;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+
+
+.entrar input:hover {
+    background-color: #DA6A04;
+}
+
+.rec {
+    margin-bottom: 5%;
+    border-bottom: 1px solid var(--text-color);
+}
+
+
+
+.rec a {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+
+.naoTem {
+    margin-top: 5%;
+    border-bottom: 1px solid var(--text-color);
+}
+
+
+
+.naoTem a {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+
+@media (max-width: 1024px) {
+    .login{
+        width: 300px;
+        border-radius: 15px;
+    }
+    .imagem {
+       display: none;
+    }
+
+    body {
+     background-image: url(../../img/trabalhando2.jpg);
+     background-size: cover;
+    }
+
+
+}

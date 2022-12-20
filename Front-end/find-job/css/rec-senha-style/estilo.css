@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+body {
+    background: rgb(237, 122, 17);
+    background: linear-gradient(122deg, rgba(237, 122, 17, 0.5914740896358543) 0%, rgba(66, 122, 170, 0.7707457983193278) 62%);
+}
+
+
+
+:root {
+    /* ===== Cores ===== */
+    --body-color: #FFFFFF;
+    --nav-lateral-color: #427AAA;
+    --nav-topo-color: #ED7A11;
+    --toggle-color: #DDD;
+    --text-color: #ffffff;
+    --black-color: #434343;
+
+
+    /* ====== Transições ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+/* logo find jobs */
+.logo {
+    z-index: 100;
+    background-color: var(--text-color);
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+    width: 80px;
+    border-radius: 45px;
+    height: 80px;
+    
+  }
+  
+  
+  
+  .logo .logo_principal {
+    width: 90%;
+  }
+  
+
+.principal {
+
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    height: 100vh;
+
+}
+
+.recuperacao_senha {
+    color: var(--black-color);
+    z-index: 100;
+    border-radius: 0px 15px 15px 0px;
+    position: absolute;
+    width: 400px;
+    height: 550px;
+    background-color: var(--toggle-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: var(--tran-05);
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+
+}
+
+.recuperacao_senha a {
+    text-decoration: none;
+}
+
+
+.voltar {
+    width: 100%;
+    justify-content: flex-start;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.voltar .circle {
+    position: relative;
+    left: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--nav-topo-color);
+    border-radius: 30px;
+    color: #FFFFFF;
+}
+
+
+
+
+
+.title {
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 5%;
+
+}
+
+.title h3 {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+
+}
+
+.title span {
+    width: 30%;
+    height: 2px;
+    background-color: #DA6A04;
+}
+
+
+
+/* Animação de texto */
+@-webkit-keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputs span input {
+    width: 250px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.inputs span {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.enviar {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 10%;
+    justify-content: center;
+}
+
+.enviar a input {
+    position: relative;
+    bottom: 10px;
+    cursor: pointer;
+    background-color: #ED7A11;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    top: 30%;
+}
+
+
+
+.enviae input:hover {
+    background-color: #DA6A04;
+}
+
+
+.inputs .texto {
+    width: 90%;
+    font-size: 15px;
+    text-align: center;
+
+}
+.imagem{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+.img {
+    border-radius: 15px 0px 0px 15px;
+    background-size: cover;
+    width: 400px;
+    height: 550px;
+    background-image: url(../../img/trabalhando2.jpg);
+   
+}
+
+.logoSenai img {
+    width: 150px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+
+}
+
+
+@media (max-width: 1024px) {
+    .container {
+        justify-content: center;
+    
+    
+      }
+    
+      .recuperacao_senha {
+        width: 400px;
+        border-radius: 15px;
+        border-bottom:var(--nav-lateral-color) 11px solid;
+      }
+    
+      .imagem {
+        display: none;
+      }
+    
+      body {
+        width: 100% !important;
+        background-size: cover  !important;
+        justify-content: center;
+        background-image: url(../../img/image\ 5.svg) !important; ;
+    
+      }
+}

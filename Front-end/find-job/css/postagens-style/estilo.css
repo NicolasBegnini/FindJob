@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Cores ===== */
+    --body-color: rgb(245, 243, 243);
+    --blue-color: #427AAA;
+    --orange-color: #ED7A11;
+    --white-color: #ffffff;
+    --text-color: #ffffff;
+    --gray-color: #dfdfdf;
+    /* ====== Transições ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+body {
+    background-color: var(--body-color);
+}
+
+p::selection,
+h3::selection,
+h4::selection,
+h2::selection,
+h5::selection,
+i::selection,
+a::selection,
+ul::selection,
+li::selection,
+span::selection,
+label::selection,
+input::selection,
+button::selection,
+strong::selection,
+img::selection {
+    background-color: var(--orange-color) !important;
+    color: #ffffff;
+
+}
+
+.home {
+    width: 80%;
+}
+
+.nav-left.close~.home {
+    width: 90%;
+    left: 7% !important;
+    height: 100vh;
+
+}
+
+
+.home {
+    position: absolute;
+    left: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    transition: var(--tran-05);
+    top: 5%;
+
+}
+
+/* Divs */
+
+.home .principal {
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    top: 12%;
+}
+
+.b {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+}
+
+.div {
+    max-width: 80%;
+    min-width: 20%;
+    max-height: 55%;
+    position: relative;
+    width: 45%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: var(--white-color);
+    margin-top: 30px;
+    border-radius: 15px;
+    align-items: flex-start;
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+
+}
+
+.div:hover{
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.993);
+}
+
+
+
+
+.empresa,
+.local,
+.requisitos,
+.salario,
+.vaga {
+    padding: 2%;
+    margin-right: 5%;
+    
+}
+
+.requisitos ul li{
+    display:flex ;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: var(--gray-color);
+    color: var(--blue-color);
+    font-weight: 600;
+
+
+}
+.r {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.bVerMais {
+    background-color: var(--orange-color) !important;
+    border: none !important;
+    position: relative;
+    margin: 0 auto;
+    bottom: 10px;
+    cursor: pointer;
+
+}
+
+.bVerMais input:hover {
+    padding: 5px;
+    background-color: #ed7b11e0 !important;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.bVerMais input {
+    position: relative !important;
+    cursor: pointer;
+    border: none;
+    padding: 4px;
+    border-radius: 15px;
+    background-color: var(--orange-color);
+    color: var(--white-color);
+    box-shadow: 0px 2px 5px rgba(70, 70, 70, 0.418);
+    font-size: 15px;
+}
+
+.div .aba {
+    position: absolute;
+    right: 0;
+    width: 35px;
+    height: 100%;
+    background-color: var(--blue-color);
+    border-radius: 0px 15px 15px 0px;
+
+}
+
+.aba.close {
+    width: 50%;
+
+}
+
+.aba.close .bx-chevron-left {
+    transform: rotate(180deg);
+
+}
+
+.aba {
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: var(--tran-03);
+}
+
+.aba .contatos {
+    display: none;
+}
+
+.aba i {
+
+    font-size: 40px;
+    color: var(--text-color);
+
+}
+
+
+
+
+
+
+.div p,
+h4 {
+
+    overflow: hidden;
+    /* // Removendo barra de rolagem */
+    text-overflow: ellipsis;
+    /* // Adicionando "..." ao final */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /*  // Quantidade de linhas */
+    -webkit-box-orient: vertical;
+    margin-right: 30px;
+
+}
+
+
+
+.aba.close .contatos {
+    font-size: 15px;
+    max-width: 80%;
+    max-height: 90%;
+    position: relative;
+    display: flex;
+    color: var(--white-color);
+    flex-direction: column;
+    margin: 0 auto;
+    opacity: 1;
+    -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.aba.close .contatos button i {
+    font-size: 15px;
+
+}
+
+.aba.close .contatos h5 {
+    font-size: 8px;
+
+}
+.title{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--tran-05);
+    margin-bottom: 10px;
+}
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.divFiltro {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    top: 6%;
+    right: -12px;
+    width: 25%;
+    height: 100%;
+}
+
+
+.filtro {
+    height: 85%;
+    width: 80%;
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+    background-color: var(--white-color);
+    border-radius: 2%;
+    border-bottom: solid 10px var(--blue-color);
+
+}
+#copia-contato:hover{
+    position: relative;
+    background-color: var(--blue-color);
+    opacity: 0.3;
+    color: var(--white-color);
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.buttonStart{
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .home {
+        left: 22% !important;
+    }
+
+    .principal {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .div {
+
+        width: 100%;
+    }
+
+    .nav-left.close~.home {
+
+        left: 15% !important;
+        height: 100vh;
+
+    }
+}

@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Cores ===== */
+    --body-color: rgb(245, 243, 243);
+    --blue-color: #427AAA;
+    --orange-color: #ED7A11;
+    --white-color: #ffffff;
+    --text-color: #ffffff;
+    --gray-color: #dfdfdf;
+    /* ====== Transições ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+
+body{
+    background-color: var(--body-color);
+}
+p::selection,
+h3::selection,
+h4::selection,
+h2::selection,
+h5::selection,
+i::selection,
+a::selection,
+ul::selection,
+li::selection,
+span::selection,
+label::selection,
+input::selection,
+button::selection,
+strong::selection,
+img::selection {
+    background-color: var(--orange-color) !important;
+    color: #ffffff;
+
+}
+
+.home {
+    width: 70%;
+    position: absolute;
+    left: 22%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: var(--tran-05);
+
+
+}
+.principal{
+    margin-top: 8%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+}
+.container{
+
+    position: relative;
+    top: 5%;
+    transition: var(--tran-05);
+
+}.botao
+li,
+a {
+    text-decoration: none;
+    list-style: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: var(--tran-03);
+    cursor: pointer;
+}
+
+.botao{
+    left: 0px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+.botao div{
+    padding: 10px;
+    background-color: #dfdfdf;
+    border: none;
+    text-align: center;
+    width: 300px;
+ 
+}
+.botao div li{
+    list-style-type: none;
+
+}
+
+.card{
+    width: 100%;
+    position: absolute !important; 
+    padding: 20px;
+  
+    border-bottom: 11px solid #427AAA !important;
+
+}
+.card.usuario{
+    display: visible;
+}
+.card.usuario.close{
+    display: none;
+}
+.card.administrador.close{
+    display: none;
+}
+.card.empresa.close{
+    display: none;
+}
+.card.vaga.close{
+    display: none;
+}
+.listaUser{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-bottom: 5px solid #427AAA !important;
+    width: 20%  !important  ;
+    height: 35px;
+
+ 
+}
+.listaUser.close{
+    border-bottom: 0px !important;
+   
+    
+}
+.listaAdm{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-bottom: 5px solid #427AAA !important;
+    width: 20%  !important;
+    height: 35px;
+}
+.listaAdm.close{
+    border-bottom: 0px !important;
+   
+}
+.listaEmpresa{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-bottom: 5px solid #427AAA !important;
+    width: 20%  !important;
+    height: 35px;
+   
+}
+.listaEmpresa.close{
+    border-bottom: 0px !important;
+   
+}
+.listaVaga{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-bottom: 5px solid #427AAA !important;
+    width: 20%  !important;
+    height: 35px;
+   
+}
+.listaVaga.close{
+    border-bottom: 0px !important;
+   
+}
+table{
+   padding: 10px;
+}
+
+thead th{
+    padding: 2%;
+    text-align: center;
+}
+
+tbody img{
+    width: 50px;
+}
+
+tbody th{
+    
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle
+}
+
+tbody td{
+    padding: 2%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle
+}
+
+tbody td button{
+    background-color: #EA5757;
+    color: #ffffff;    
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+tbody td button i{
+    font-size: 25px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle
+
+}
+.pagination{
+    margin-top: 20px;
+}
+.page-link {
+    border-radius: 0%;
+    color: #427AAA;
+}
+.page-link:hover {
+    color: #ffffff;
+    background-color: #ED7A11;  
+
+}
+.listagem{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+
+/* 
+.active>.page-link, .page-link.active {
+    z-index: 3;
+    color: var(--bs-pagination-active-color);
+    background-color: var(--orange-color) !important;
+    border-color: var(--orange-color) !important;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
+    font-size: var(--bs-pagination-font-size);
+    color: black !important;
+    text-decoration: none;
+    background-color: var(--bs-pagination-bg);
+    border:none !important;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.pagination {
+    --bs-pagination-padding-x: 0.75rem;
+    --bs-pagination-padding-y: 0.375rem;
+    --bs-pagination-font-size: 1rem;
+    --bs-pagination-color: var(--orange-color)  !important;
+    --bs-pagination-bg: #fff;
+    --bs-pagination-border-width: 1px;
+    --bs-pagination-border-color: #dee2e6;
+    --bs-pagination-border-radius: 0.375rem;
+    --bs-pagination-hover-color: var(--orange-color) !important;
+    --bs-pagination-hover-bg: #e9ecef;
+    --bs-pagination-hover-border-color: #dee2e6;
+    --bs-pagination-focus-color: var(--orange-color) !important;
+    --bs-pagination-focus-bg: #e9ecef;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25remrgba(13, 110, 253, 0.25);
+    --bs-pagination-active-color: #fff;
+    --bs-pagination-active-bg: #c9c9c9;
+    --bs-pagination-active-border-color: #a7aaae !important;
+    --bs-pagination-disabled-color: #6c757d !important;
+    --bs-pagination-disabled-bg: #fff;
+    --bs-pagination-disabled-border-color: #dee2e6;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+} */

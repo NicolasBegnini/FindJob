@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+      <!-- validação do token-->
+      <script src="../../js/token/adm/script.js" defer></script>
+  <!-- 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../../css/listagem-style/estilo.css" />
+  <link rel="stylesheet" href="../../css/navbar-style/estilo.css">
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+
+
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="
+  https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="../../js/listagem-js/script.js" defer></script>
+
+  <title>Find Job | Listagem</title>
+</head>
+
+<body>
+  <div class="todo">
+    <nav class="nav-top">
+
+
+      <div class="user" href="perfil.html">
+
+        <div class="user-text">
+          <label id="nameUser" >Olá</label>
+        </div>
+      </div>
+
+
+    </nav>
+
+    <nav class="nav-left">
+
+      <header class="header">
+        <span class="img">
+          <img src="../../img/logo.png" alt="" srcset="">
+        </span>
+
+        <i class='bx bx-menu toggle'></i>
+
+      </header>
+
+
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="tlogo">
+
+            <span class="text nav-text"><strong>FIND JOB</strong></span>
+          </ul>
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="perfil.html">
+
+                <i class='bx bx-user icon'></i>
+                <span class="text nav-text">Perfil</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="home.html">
+                <i class='bx bx-home-alt icon'></i>
+                <span class="text nav-text">Home</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="solicitacao.html">
+
+                <i class='bx bx-bell icon'></i>
+                <span class="text nav-text">Solicitações</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">
+                <i class='bx bx-spreadsheet icon'></i>
+                <span class="text nav-text">Usuários</span>
+              </a>
+            </li>
+            <li class="sair">
+              <a href="../login/login/login_adm.html">
+                <i class='bx bx-log-out icon sair'></i>
+              </a>
+            </li>
+
+        </div>
+      </div>
+
+
+    </nav>
+    <nav class="nav-bootom"></nav>
+
+
+    <div class="home">
+      <div class="principal">
+        <div class="container ">
+
+          <div class="botao">
+            <div class="listaUser" id="user">
+              <li>Usuários</li>
+            </div>
+            <div class="listaAdm close" id="adm">
+              <li>Administradores</li>
+            </div>
+            <div class="listaEmpresa close" id="empresa">
+              <li>Empresas</li>
+            </div>
+            <div class="listaVaga close" id="vaga">
+              <li>Vagas</li>
+            </div>
+          </div>
+
+
+          <div class="card usuario" id="usuariosListagem">
+            <table id="tableUser" class="table table-striped" style="width:100%">
+
+              <thead>
+                <tr>
+                  <th scope="col" class="col-1">ID</th>
+
+                  <th scope="col" class="col-2">Nome</th>
+                  <th scope="col" class="col-2">E-mail</th>
+                  <th scope="col" class="col-1">Excluir</th>
+                </tr>
+              </thead>
+
+              <tbody id="bodyUser">
+
+              </tbody>
+            </table>
+
+          </div>
+
+
+
+          <div class="card administrador close" id="administradoresListagem">
+            <table id="tableAdm" class="table table-striped" style="width:100%">
+
+
+              <thead>
+                
+                <tr>
+                  <th scope="col" class="col-1">ID</th>
+                  <th scope="col" class="col-2">Nome</th>
+                  <th scope="col" class="col-2">E-mail</th>
+                  <th scope="col" class="col-1">Excluir</th>
+                </tr>
+              </thead>
+
+              <tbody id="bodyAdm">
+              </tbody>
+            </table>
+
+          </div>
+
+
+          <div class="card empresa close" id="empresasListagem">
+            <table id="tableEmpresa" class="table table-striped" style="width:100%">
+
+              <thead>
+                <tr>
+                  <th scope="col" class="col-1">ID</th>
+                  <th scope="col" class="col-2">Nome</th>
+                  <th scope="col" class="col-2">CNPJ</th>
+                  <th scope="col" class="col-1">Ver Mais</th>
+                  <th scope="col" class="col-1">Desativar</th>
+                </tr>
+              </thead>
+
+              <tbody id="bodyEmpresa">
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="card vaga close" id="vagasListagem">
+            <table id="tableVaga" class="table table-striped" style="width:100%">
+
+              <thead>
+                <tr>
+                  <th scope="col" class="col-1">ID</th>
+                  <th scope="col" class="col-2">Vaga</th>
+                  <th scope="col" class="col-2">Empresa</th>
+                  <th scope="col" class="col-1">Ver Mais</th>
+                  <th scope="col" class="col-1">Excluir</th>
+                </tr>
+              </thead>
+
+              <tbody id="bodyVaga">
+
+              </tbody>
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- delete user -->
+      <div class="modal fade" tabindex="-1" id="deleteModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" id="text">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="background-color: rgb(149, 193, 231) !important;"
+                data-bs-dismiss="modal" id="cancelar">Cancelar</button>
+              <button type="button" class="btn btn-danger" style="background-color: red !important;"
+                id="deletConfirm">Excluir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal fade" id="modalEmpresa" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h5 class="modal-title"  id="nomeEmpresa"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="closeModal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    
+                </div>
+                <div class="modal-footer">
+                    
+              
+                    <button type="button" class="btn btn-secondary" id="closeModal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalVaga" tabindex="-1" aria-labelledby="Label" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-scrollable modal-dialog-centered">
+          <div class="modal-content" >
+              <div class="modal-header">
+                  <h5 class="modal-title"  id="nomeVaga">Nome da Empresa</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Close" id="closeModal"></button>
+              </div>
+              <div class="modal-body" id="modalBodyVaga">
+                  
+              </div>
+              <div class="modal-footer">
+                  
+            
+                  <button type="button" class="btn btn-secondary" id="closeModalVaga">Fechar</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+
+
+
+      <script src="../../js/navbar-js/script.js"></script>
+      <script type="text/javascript" charset="utf8" src="
+      https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+      <script>
+       
+      </script>
+     
+</body>
+
+</html>

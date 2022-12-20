@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\frama\Desktop\SGV"/>
+			<item value="C:\Users\frama\Downloads\SGV-Back (1)\SGV-Back"/>
+			<item value="C:\Users\frama\Downloads\SGV-Back\SGV-Back"/>
+			<item value="C:\Users\frama\Downloads\SGV-master (4)\SGV-master"/>
+			<item value="C:\Users\frama\Downloads\SGV-master (3)\SGV-master"/>
+			<item value="C:\Users\frama\Downloads\SGV-master (1)\SGV-master"/>
+			<item value="C:\Users\frama\Downloads\SGV-master\SGV-master"/>
+			<item value="C:\Users\frama\Desktop\SGV-master"/>
+			<item value="C:\Users\frama\Downloads\cursospringboot-master\cursospringboot-master"/>
+			<item value="C:\Users\frama\Downloads\SGV-master (2)\SGV-master"/>
+			<item value="C:\Users\frama\Desktop\Projeto Final\Back-end\SGV-master"/>
+			<item value="C:\Users\frama\Downloads\FindJob-branch"/>
+			<item value="C:\Users\frama\Desktop\Projeto Final\Back-end\FindJob-master"/>
+			<item value="C:\Users\frama\Downloads\FindJob-master\FindJob-master"/>
+			<item value="C:\Users\frama\Desktop\Projeto Final\Back-end\findJob"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

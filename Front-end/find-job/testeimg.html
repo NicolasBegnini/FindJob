@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
+</head>
+  
+<body>
+    <input type="file" name="" id="fileId" 
+        onchange="imageUploaded()">
+    <br><br>
+  
+    <button onclick="displayString()">
+        Display String
+    </button>
+
+    <button onclick="open()">
+Mandar Imagem
+    </button>
+
+    <span id="span"></span>
+</body>
+  <script>
+let base64String = "";
+  
+  function imageUploaded() {
+      var file = document.querySelector(
+          'input[type=file]')['files'][0];
+    
+      var reader = new FileReader();
+      console.log("next");
+        
+      reader.onload = function () {
+          base64String = reader.result.replace("data:", "")
+              .replace(/^.+,/, "");
+    
+          imageBase64Stringsep = base64String;
+    
+          // alert(imageBase64Stringsep);
+          console.log(base64String);
+      }
+      reader.readAsDataURL(file);
+  }
+    
+  function displayString() {
+      axios.post('http://localhost:8080/api/usuario/', {
+        nome:"Felipe",
+        cpf: "29567739846",
+        email: "framalhosdfs@gmail.com",
+        senha: "123456",
+        tipoUsuario: "USUARIO",
+        foto: base64String
+      })
+  }
+
+    function open(){
+        axios.get('http://localhost:8080/api/usuario/especifico/1')
+        .then(function (response) {
+        foto = response.data[0].foto;
+        foto = "data:image/png;base64," + foto;
+       
+        var img = document.createElement("img");
+    const span = document.getElementById("span");
+    span.appendChild(img);
+        })
+        .catch(function (error) {
+        // handle error
+        console.log(error);
+        })
+        .then(function () {
+        // always executed
+        });
+    }
+
+
+  </script>
+</html>

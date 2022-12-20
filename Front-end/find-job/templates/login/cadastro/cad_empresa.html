@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!----===== Bootstrap ===== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="../../../css/cad-empresa-style/estilo.css" />
+  <link rel="stylesheet" href="../../../css/notifications-style/estilo.css" />
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+<!-- Envio de email quando cadastrar -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init("z7o4593zD739tQAdz");
+  })();
+</script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Find Job | Cadastro - Empresa</title>
+</head>
+
+
+
+
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="../../../img/logo_principal.svg" class="logo_principal" />
+    </div>
+
+
+
+
+
+    <form class="principal" action="">
+      <div class="cadastro_empresa">
+        <div class="title">
+          <h3>CADASTRO<strong style="color: #ed7a11">-</strong>EMPRESA</h3>
+          <span></span>
+        </div>
+        <span class="voltar" style="opacity: 0">
+          <div class="circle">
+            <i class="bx bx-chevron-left contats" id="contats"></i>
+          </div>
+        </span>
+        <div class="inputs">
+          <span class="nome_Empresa">
+            <label>NOME DA EMPRESA:</label>
+            <input type="text" placeholder="Nome da empresa" id="nome_Empresa" />
+
+          </span>
+          <span class="cnpj">
+            <label>CNPJ:</label>
+            <input placeholder="CNPJ" type="text" id="cnpj" >
+            <!-- type="text" onkeyup="cpfCheck(this)" maxlength="18"
+              onkeydown="javascript: fMasc( this, mCPF );" -->
+          </span>
+          <!-- <span class="telefone_Empresa">
+            <label>TELEFONE:</label>
+            <input type="text" placeholder="Telefone" id="telefone_Empresa" />
+
+          </span> -->
+
+          <span class="email_Empresa">
+            <label>E-MAIL:</label>
+            <input type="email" placeholder="E-mail" id="email_Empresa" />
+
+          </span>
+          <span class="telefone_Empresa">
+            <label>TELEFONE:</label>
+            <input type="text" placeholder="Telefone" id="telefone_Empresa" />
+
+          </span>
+          
+        </div>
+        <span class="proximo">
+          <input type="button" value="Próximo" id="proximo" />
+        </span>
+        <span class="bolinhas">
+          <div class="c1"></div>
+          <div class="c2"></div>
+          <div class="c3"></div>
+        </span>
+
+        <span class="jaTem">
+          <a href="../login/login_empresa.html">Já possui uma conta?</a>
+        </span>
+      </div>
+
+
+
+      <div class="cadastro_empresa2 close">
+        <div class="title">
+          <h3>CADASTRO<strong style="color: #ed7a11">-</strong>EMPRESA</h3>
+          <span></span>
+        </div>
+        <span class="voltar" id="voltar">
+          <div class="circle">
+            <i class="bx bx-chevron-left contats" id="contats"></i>
+          </div>
+        </span>
+        <div class="inputs">
+          <span class="cep_Empresa">
+            <label>CEP:</label>
+            <input type="text" placeholder="CEP" id="cep_Empresa" maxlength="9" onblur="pesquisacep(this.value);" />
+          </span>
+          <span class="n_Empresa">
+            <label>N°:</label>
+            <input type="text" id="n_Empresa" name="n" placeholder="Numero">
+          </span>
+          <span class="endereco_Empresa">
+            <label>ENDEREÇO:</label>
+            <input type="text" placeholder="Endereço" id="rua_Empresa">
+          </span>
+         
+          <span class="bairro_Empresa">
+            <label>BAIRRO:</label>
+            <input type="text" placeholder="Bairro" id="bairro_Empresa">
+          </span>
+
+          
+         
+        </div>
+        <span class="proximo">
+            <input type="button" value="Próximo" id="proximo2" />
+          </span>
+        
+        <span class="bolinhas">
+          <div class="c1"></div>
+          <div class="c2"></div>
+          <div class="c3"></div>
+        </span>
+
+        <span class="jaTem">
+          <a href="../login/login_empresa.html">Já possui uma conta?</a>
+        </span>
+      </div>
+
+      <div class="cadastro_empresa3 close">
+        <div class="title">
+          <h3>CADASTRO<strong style="color: #ed7a11">-</strong>EMPRESA</h3>
+          <span></span>
+        </div>
+        <span class="voltar" id="voltar2">
+          <div class="circle">
+            <i class="bx bx-chevron-left contats" id="contats"></i>
+          </div>
+        </span>
+        <div class="inputs">
+          <span class="cidade_Empresa">
+            <label>CIDADE:</label>
+            <input type="text" placeholder="Cidade" id="cidade_Empresa">
+          </span>
+          <span class="uf_Empresa">
+            <label>UF:</label>
+            <input type="text" id="uf_Empresa" name="uf" placeholder="Estado">
+          </span>
+         
+          <span class="senha_Empresa">
+            <label>SENHA:</label>
+            <input type="password" placeholder="Senha" id="senha_Empresa" />
+
+          </span>
+          <span class="confirmarSenha_empresa">
+            <label>CONFIRME A SENHA:</label>
+            <input type="password"  placeholder="Confirmar senha"  id="confirmarSenha_empresa" >
+           
+          </span>  
+
+        </div>
+
+        <span class="concluir">
+            <a href="../usuario/home.html">
+              <input type="submit" name=""  value='Concluir' class="concluir" id="salvar">
+            </a>
+        </span>
+
+        <span class="bolinhas">
+          <div class="c1"></div>
+          <div class="c2"></div>
+          <div class="c3"></div>
+        </span>        
+
+        <span class="jaTem">
+          <a href="../login/login_empresa.html">Já possui uma conta?</a>
+        </span>
+      </div>
+
+    </form>
+    <div class="imagem">
+    </div>
+
+  </div>
+
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+
+    <script src="../../../js/cadastro-js/cad-empresa/script.js"></script>
+
+    
+</body>
+
+</html>

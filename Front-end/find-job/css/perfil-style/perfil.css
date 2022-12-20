@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Cores ===== */
+    --body-color: rgb(245, 243, 243);
+    --blue-color: #427AAA;
+    --orange-color: #ED7A11;
+    --white-color: #ffffff;
+    --text-color: #ffffff;
+    /* ====== Transições ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+p::selection,
+h3::selection,
+h4::selection,
+h2::selection,
+h5::selection,
+i::selection,
+a::selection,
+ul::selection,
+li::selection,
+span::selection,
+label::selection,
+input::selection,
+button::selection,
+strong::selection,
+img::selection {
+    background-color: var(--orange-color) !important;
+    color: #ffffff;
+
+}
+
+
+body {
+    background-color: var(--body-color) !important;
+}
+
+.nav-left.close~.home {
+    left: 15%;
+    height: 70% !important;
+}
+
+.home {
+    width: 80%;
+}
+
+.home {
+    position: absolute;
+    left: 17%;
+    height: 70%;
+    background-color: var(--body-color);
+    display: flex;
+    align-items: center;
+    transition: var(--tran-05);
+
+}
+
+.home .principal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+
+
+
+}
+
+
+
+.header-d {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.header-d span {
+    width: 15%;
+    height: 2px;
+    background-color: var(--orange-color);
+}
+.dadosC {
+    position: relative;
+    top: 25%;
+    border-top: solid 10px #427AAA;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    background-color: var(--white-color);
+    box-shadow: 2px 1px 5px rgba(70, 70, 70, 0.493);
+
+}
+
+.dadosC .edit {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+.loginAndSenha .edit {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit input {
+
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--orange-color);
+    color: var(--text-color);
+
+}
+
+.edit input:hover {
+    background-color: #d1731c;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.dadosP {
+    position: relative;
+    top: 25%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    background-color: var(--body-color);
+}
+
+.d1 {
+
+    width: 100%;
+    height: 20%;
+    background-color: var(--white-color);
+    border-bottom: var(--blue-color) 11px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.d1 button{
+    background-color: red !important;
+}
+.d2 {
+
+    width: 100%;
+    height: 40%;
+    background-color: var(--white-color);
+    border-bottom: var(--blue-color) 11px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.d1.adm{
+height: 30%    !important;
+}
+.d2.adm{
+    height: 60%   !important;
+    }
+
+.header-p {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+.header-p img{
+    width: 100px;
+   
+
+}
+.header-p span {
+    width: 15%;
+    height: 2px;
+    background-color: var(--orange-color);
+}
+
+.footer-c{
+    width: 100%;
+    height: 30%;
+  }
+

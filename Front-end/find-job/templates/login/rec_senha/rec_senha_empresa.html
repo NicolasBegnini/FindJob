@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="../../../css/rec-senha-empresa-style/estilo.css" />
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+  
+  
+    <!----===== Bootstrap ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+ 
+  <!-- Envio de email quando cadastrar -->
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init("z7o4593zD739tQAdz");
+  })();
+</script>
+  <title>Find Job | Recuprecação de senha</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="../../../img/logo_principal.svg" class="logo_principal" />
+    </div>
+    
+    
+    <div class="imagem">
+    <div class="img"></div>
+    </div>
+
+    <div class="principal">
+      <form class="recuperacao_senha">
+        <div class="title">
+          <h3>RECUPERAÇÃO DE SENHA</h3>
+          <span></span>
+        </div>
+
+        <span class="voltar" id="voltar">
+          <a href="../../login/login/login_empresa.html">
+            <div class="circle">
+
+              <i class="bx bx-chevron-left contats" id="contats"></i>
+
+            </div>
+          </a>
+
+          <div class="inputs">
+            <span class="texto t1">
+              <p>Para sua segurança e de seus dados,
+                vamos confirmar suas informações.</p>
+            </span>
+            <span class="senha">
+              <label>E-MAIL:</label>
+              <input type="email" placeholder="E-mail" id="email" />
+            </span>
+            <span class="texto t2" id="emailtext">
+              
+            </span>
+
+
+          </div>
+          <span class="enviar">
+            <a href="../../empresa/home.html">
+              <input type="submit" value="Enviar"  id="entrar" onclick="sendEmail()"/>
+            </a>
+
+          </span>
+
+
+      </form>
+    </div>
+
+  </div>    
+
+<script src="../../../js/rec_senha/script.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+  integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+  crossorigin="anonymous"></script>
+
+</body>
+
+</html>
